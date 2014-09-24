@@ -1,0 +1,84 @@
+!!!
+- def t path; "<script>document.write(window.I18n.t('#{path}'));</script>"; end
+%html.no-js
+  %head
+    %meta{:charset => "utf-8"}/
+    %title pavliko
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "width=device-width", :name => "viewport"}/
+    %link{:href => "styles/main.css", :rel => "stylesheet"}/
+    :coffee
+      window.locale = if window.location.host == 'pavliko.com' then 'en' else 'ru'
+      window.I18n =
+        translations:
+          en:
+            name: 'Gorlov Pavel'
+            position: 'Private entrepreneur'
+            specialty: 'WEB developer'
+            site:
+              title: 'Site:'
+              value: '<a href="http://pavliko.com">http://pavliko.com</a>'
+            email:
+              title: 'Email:'
+              value: '<a href="mailto:i@pavliko.com">i@pavliko.com</a>'
+            skype:
+              title: 'Skype:'
+              value: '<a href="skype:vampiroxx5?call">Gorlov Pavel (vampiroxx5)</a>'
+            phone:
+              title: 'Phone:'
+            footer:
+              blog: '<a href="http://blog.pavliko.com">Blog</a>'
+          ru:
+            name: 'Горлов Павел Сергеевич'
+            position: 'Индивидуальный предприниматель'
+            specialty: 'WEB разработчик'
+            site:
+              title: 'Сайт:'
+              value: '<a href="http://pavliko.ru">http://pavliko.ru</a>'
+            email:
+              title: 'Почта:'
+              value: '<a href="mailto:i@pavliko.ru">i@pavliko.ru</a>'
+            skype:
+              title: 'Skype:'
+              value: '<a href="skype:vampiroxx5?call">Gorlov Pavel (vampiroxx5)</a>'
+            phone:
+              title: 'Телефон:'
+            footer:
+              blog: '<a href="http://blog.pavliko.ru">Блог</a>'
+        t: (path) -> eval('I18n.translations.' + window.locale + '.' + path)
+  %body
+    /[if lt IE 10]
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    .line-numbers-wrapper
+    %ol
+      %li
+        %h1= t('name')
+      %li= t('position')
+      %li= t('specialty')
+      %li &nbsp;
+      %li &nbsp;
+      %li &nbsp;
+      %li
+        %dl
+          %dt= t('site.title')
+          %dd#site.site= t('site.value')
+      %li
+        %dl
+          %dt= t('email.title')
+          %dd= t('email.value')
+      %li
+        %dl
+          %dt= t('skype.title')
+          %dd= t('skype.value')
+      %li.last-in-section
+        %dl
+          %dt= t('phone.title')
+          %dd
+            %a{href: "tel:+79627050961"} +7 962 7050961
+            \/
+            %a{href: "tel:+66872704529"} +66 87 2704529
+      %li.footer
+        = t('footer.blog')
+    :coffee
+      site = document.getElementById('site')
+      site.className = site.className + ' ' + window.locale

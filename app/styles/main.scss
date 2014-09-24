@@ -1,0 +1,141 @@
+// bower:scss
+@import "normalize-scss/_normalize.scss";
+// endbower
+
+$heading-font-size: 2em;
+
+
+
+html {
+  font-size: 20px;
+}
+@media screen and (max-width:1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+body {
+  background: black;
+  font-family: Monaco, monospace, "Lucida Console";
+  font-weight: 300;
+  color: white;
+  padding-left: 4em;
+}
+
+a {
+  color: #A0AC7D;
+}
+
+.line-numbers-wrapper {
+  background-color: #3E3E40;
+  border-right: 0.15em solid #535355;
+  height: 100%;
+  width: 4em;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+h1 {
+  font-size: $heading-font-size;
+  margin: 0;
+}
+
+ol {
+  list-style-type: none;
+  counter-reset: li-counter;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding: 0.5em 1em;
+
+    &:before {
+      position: absolute;
+      content: counter(li-counter);
+      counter-increment: li-counter;
+      color: #A0A0A0;
+      left: -2.1em;
+    }
+
+    &:first-child{
+      &:before {
+        left: -1.2em;
+        font-size: $heading-font-size;
+      }
+    }
+
+    &.last-in-section {
+      border-bottom: 0.15em dashed #535355;
+    }
+
+    &.footer {
+      text-align: center;
+    }
+  }
+}
+
+dl {
+  margin: 0;
+
+  dt {
+    display: inline-block;
+    width: 4em;
+    color: #DA7F5E;
+  }
+
+  dd {
+    display: inline-block;
+    color: #A0AC7D;
+    margin-left: 1em;
+    &.site {
+      float: right;
+      margin-right: 1em;
+
+      a {
+        color: white;
+
+        &:before{
+          height: 10em;
+          width: 10em;
+          position: absolute;
+          content: '';
+          background-size: cover;
+          top: -10em;
+          right: 2.3em;
+        }
+      }
+    }
+
+    &.site.ru {
+      a {
+        &:before{
+          background-image: url("/images/qrru.png");
+        }
+      }
+    }
+
+    &.site.en {
+      a {
+        &:before{
+          background-image: url("/images/qren.png");
+        }
+      }
+    }
+
+    a {
+      color: #A0AC7D;
+    }
+  }
+}

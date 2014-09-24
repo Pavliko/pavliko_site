@@ -1,0 +1,8 @@
+{
+  "name": "pavliko",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.1",
+    "normalize-scss": "~3.0.1"
+  }
+}
