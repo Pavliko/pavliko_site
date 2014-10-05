@@ -31,6 +31,21 @@
               phone: {
                 title: 'Phone:'
               },
+              about_self: 'About me',
+              education: {
+                title: 'Education:',
+                value: 'Master, technical'
+              },
+              self_projects: {
+                title: 'Projects:'
+              },
+              work: {
+                title: 'Work:',
+                value: 'GO TRAVEL UN LIMITED (<a href="http://jetradar.com?marker=15882.pavliko" target="_blank">jetradar.com</a> <a href="http://aviasales.ru?marker=15882.pavliko" target="_blank">aviasales.ru</a> <a href="http://travelpayouts.com?marker=15882.pavliko" target="_blank">travelpayouts.com</a>) - full stack developer'
+              },
+              social_accounts: {
+                title: 'Social accounts:'
+              },
               footer: {
                 blog: '<a href="http://blog.pavliko.com">Blog</a>'
               }
@@ -54,13 +69,35 @@
               phone: {
                 title: 'Телефон:'
               },
+              about_self: 'О себе',
+              education: {
+                title: 'Образование:',
+                value: 'Высшее, техническое'
+              },
+              projects: {
+                title: 'Проекты:'
+              },
+              work: {
+                title: 'Работа:',
+                value: 'GO TRAVEL UN LIMITED (<a href="http://jetradar.com?marker=15882.pavliko" target="_blank">jetradar.com</a> <a href="http://aviasales.ru?marker=15882.pavliko" target="_blank">aviasales.ru</a> <a href="http://travelpayouts.com?marker=15882.pavliko" target="_blank">travelpayouts.com</a>) - full stack разработчик.'
+              },
+              social_accounts: {
+                title: 'Социальные аккаунты:'
+              },
               footer: {
-                blog: '<a href="http://blog.pavliko.ru">Блог</a>'
-              }
+                blog: '<a href="http://blog.pavliko.ru" target="_blank">Блог</a>'
+              },
+              self_projects: 'Личные проекты:'
             }
           },
           t: function(path) {
-            return eval('I18n.translations.' + window.locale + '.' + path);
+            var result;
+            try {
+              result = eval('I18n.translations.' + window.locale + '.' + path);
+            } catch (_error) {
+      
+            }
+            return result || path;
           }
         };
       
@@ -109,6 +146,43 @@
           </dd>
         </dl>
       </li>
+      <li class='heading'>
+        <h2><script>document.write(window.I18n.t('about_self'));</script></h2>
+      </li>
+      <li>
+        <dl>
+          <dt><script>document.write(window.I18n.t('education.title'));</script></dt>
+          <dd><script>document.write(window.I18n.t('education.value'));</script></dd>
+        </dl>
+      </li>
+      <li>
+        <dl>
+          <dt><script>document.write(window.I18n.t('work.title'));</script></dt>
+          <dd><script>document.write(window.I18n.t('work.value'));</script></dd>
+        </dl>
+      </li>
+      <li>
+        <dl>
+          <dt><script>document.write(window.I18n.t('projects.title'));</script></dt>
+          <dd>
+            <a href='http://aviastation.ru' target='_blank'>aviastation.ru</a>
+            <a href='http://redirectme.ru' target='_blank'>redirectme.ru</a>
+          </dd>
+        </dl>
+      </li>
+      <li class='last-in-section'>
+        <dl>
+          <dt><script>document.write(window.I18n.t('social_accounts.title'));</script></dt>
+          <dd>
+            <a href='http://www.facebook.com/pavel.s.gorlov' target='_blank'>facebook</a>
+            <a href='http://www.linkedin.com/pub/pavel-gorlov/25/8a2/386' target='_blank'>linkedin</a>
+            <a href='http://vk.com/ilikeyou' target='_blank'>vk</a>
+            <a href='http://twitter.com/Pavliko_O' target='_blank'>twitter</a>
+            <a href='http://instagram.com/pavlik0' target='_blank'>instagram</a>
+            <a href='http://foursquare.com/pavliko_o' target='_blank'>swarm</a>
+          </dd>
+        </dl>
+      </li>
       <li class='footer'>
         <script>document.write(window.I18n.t('footer.blog'));</script>
       </li>
@@ -123,5 +197,36 @@
       
       }).call(this);
     </script>
+    <!-- Yandex.Metrika counter -->
+    <script>
+      (function (d, w, c) {
+          (w[c] = w[c] || []).push(function() {
+              try {
+                  w.yaCounter23658445 = new Ya.Metrika({id:23658445,
+                          webvisor:true,
+                          clickmap:true,
+                          trackLinks:true,
+                          accurateTrackBounce:true});
+              } catch(e) { }
+          });
+      
+          var n = d.getElementsByTagName("script")[0],
+              s = d.createElement("script"),
+              f = function () { n.parentNode.insertBefore(s, n); };
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+      
+          if (w.opera == "[object Opera]") {
+              d.addEventListener("DOMContentLoaded", f, false);
+          } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+      <div>
+        <img alt='' src='//mc.yandex.ru/watch/23658445' style='position:absolute; left:-9999px;'>
+      </div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
   </body>
 </html>

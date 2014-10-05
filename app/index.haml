@@ -26,6 +26,17 @@
               value: '<a href="skype:vampiroxx5?call">Gorlov Pavel (vampiroxx5)</a>'
             phone:
               title: 'Phone:'
+            about_self: 'About me'
+            education:
+              title: 'Education:'
+              value : 'Master, technical'
+            self_projects:
+              title: 'Projects:'
+            work:
+              title: 'Work:'
+              value: 'GO TRAVEL UN LIMITED (<a href="http://jetradar.com?marker=15882.pavliko" target="_blank">jetradar.com</a> <a href="http://aviasales.ru?marker=15882.pavliko" target="_blank">aviasales.ru</a> <a href="http://travelpayouts.com?marker=15882.pavliko" target="_blank">travelpayouts.com</a>) - full stack developer'
+            social_accounts:
+              title: 'Social accounts:'
             footer:
               blog: '<a href="http://blog.pavliko.com">Blog</a>'
           ru:
@@ -43,9 +54,25 @@
               value: '<a href="skype:vampiroxx5?call">Gorlov Pavel (vampiroxx5)</a>'
             phone:
               title: 'Телефон:'
+            about_self: 'О себе'
+            education:
+              title: 'Образование:'
+              value: 'Высшее, техническое'
+            projects:
+              title: 'Проекты:'
+            work:
+              title: 'Работа:'
+              value: 'GO TRAVEL UN LIMITED (<a href="http://jetradar.com?marker=15882.pavliko" target="_blank">jetradar.com</a> <a href="http://aviasales.ru?marker=15882.pavliko" target="_blank">aviasales.ru</a> <a href="http://travelpayouts.com?marker=15882.pavliko" target="_blank">travelpayouts.com</a>) - full stack разработчик.'
+            social_accounts:
+              title: 'Социальные аккаунты:'
             footer:
-              blog: '<a href="http://blog.pavliko.ru">Блог</a>'
-        t: (path) -> eval('I18n.translations.' + window.locale + '.' + path)
+              blog: '<a href="http://blog.pavliko.ru" target="_blank">Блог</a>'
+            self_projects: 'Личные проекты:'
+        t: (path) ->
+          try
+            result = eval('I18n.translations.' + window.locale + '.' + path)
+          catch
+          result || path
   %body
     /[if lt IE 10]
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -77,8 +104,63 @@
             %a{href: "tel:+79627050961"} +7 962 7050961
             \/
             %a{href: "tel:+66872704529"} +66 87 2704529
+      %li.heading
+        %h2= t('about_self')
+      %li
+        %dl
+          %dt= t('education.title')
+          %dd= t('education.value')
+      %li
+        %dl
+          %dt= t('work.title')
+          %dd= t('work.value')
+      %li
+        %dl
+          %dt= t('projects.title')
+          %dd
+            %a{href: 'http://aviastation.ru', target: :_blank} aviastation.ru
+            %a{href: 'http://redirectme.ru', target: :_blank} redirectme.ru
+      %li.last-in-section
+        %dl
+          %dt= t('social_accounts.title')
+          %dd
+            %a{href: 'http://www.facebook.com/pavel.s.gorlov', target: :_blank} facebook
+            %a{href: 'http://www.linkedin.com/pub/pavel-gorlov/25/8a2/386', target: :_blank} linkedin
+            %a{href: 'http://vk.com/ilikeyou', target: :_blank} vk
+            %a{href: 'http://twitter.com/Pavliko_O', target: :_blank} twitter
+            %a{href: 'http://instagram.com/pavlik0', target: :_blank} instagram
+            %a{href: 'http://foursquare.com/pavliko_o', target: :_blank} swarm
       %li.footer
         = t('footer.blog')
     :coffee
       site = document.getElementById('site')
       site.className = site.className + ' ' + window.locale
+
+    / Yandex.Metrika counter
+    :javascript
+      (function (d, w, c) {
+          (w[c] = w[c] || []).push(function() {
+              try {
+                  w.yaCounter23658445 = new Ya.Metrika({id:23658445,
+                          webvisor:true,
+                          clickmap:true,
+                          trackLinks:true,
+                          accurateTrackBounce:true});
+              } catch(e) { }
+          });
+
+          var n = d.getElementsByTagName("script")[0],
+              s = d.createElement("script"),
+              f = function () { n.parentNode.insertBefore(s, n); };
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+          if (w.opera == "[object Opera]") {
+              d.addEventListener("DOMContentLoaded", f, false);
+          } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+    %noscript
+      %div
+        %img{:alt => "", :src => "//mc.yandex.ru/watch/23658445", :style => "position:absolute; left:-9999px;"}/
+    / /Yandex.Metrika counter

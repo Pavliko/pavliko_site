@@ -3,11 +3,11 @@
 // endbower
 
 $heading-font-size: 2em;
-
+$second-heading-font-size: 1.2em;
 
 
 html {
-  font-size: 20px;
+  font-size: 18px;
 }
 @media screen and (max-width:1024px) {
   html {
@@ -52,6 +52,11 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  font-size: $second-heading-font-size;
+  margin: 0;
+}
+
 ol {
   list-style-type: none;
   counter-reset: li-counter;
@@ -76,6 +81,13 @@ ol {
       }
     }
 
+    &.heading{
+      &:before {
+        left: -1.8em;
+        font-size: $second-heading-font-size;
+      }
+    }
+
     &.last-in-section {
       border-bottom: 0.15em dashed #535355;
     }
@@ -91,7 +103,6 @@ dl {
 
   dt {
     display: inline-block;
-    width: 4em;
     color: #DA7F5E;
   }
 
