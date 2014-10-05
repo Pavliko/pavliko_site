@@ -36,7 +36,12 @@ body {
 a {
   color: #A0AC7D;
 }
-
+.languages {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+}
 .line-numbers-wrapper {
   background-color: #3E3E40;
   border-right: 0.15em solid #535355;
