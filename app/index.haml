@@ -20,17 +20,17 @@
               value: '<a href="http://pavliko.com">http://pavliko.com</a>'
             email:
               title: 'Email:'
-              value: '<a href="mailto:i@pavliko.com">i@pavliko.com</a>'
-            skype:
-              title: 'Skype:'
-              value: '<a href="skype:vampiroxx5?call">Gorlov Pavel (vampiroxx5)</a>'
+              value: '<a target="_blank" href="mailto:i@pavliko.com">i@pavliko.com</a>'
+            telegram:
+              title: 'Telegram:'
+              value: '<a target="_blank" href="http://telegram.me/pavliko">@pavliko</a>'
             phone:
               title: 'Phone:'
             about_self: 'About me'
             education:
               title: 'Education:'
               value : 'Master, technical'
-            self_projects:
+            projects:
               title: 'Projects:'
             work:
               title: 'Work:'
@@ -38,7 +38,7 @@
             social_accounts:
               title: 'Social accounts:'
             footer:
-              blog: '<a href="http://blog.pavliko.com">Blog</a>'
+              pavliko: '<a href="http://pavliko.com">pavliko.com</a>'
           ru:
             name: 'Горлов Павел Сергеевич'
             position: 'Индивидуальный предприниматель'
@@ -48,10 +48,10 @@
               value: '<a href="http://pavliko.ru">http://pavliko.ru</a>'
             email:
               title: 'Почта:'
-              value: '<a href="mailto:i@pavliko.ru">i@pavliko.ru</a>'
-            skype:
-              title: 'Skype:'
-              value: '<a href="skype:vampiroxx5?call">Gorlov Pavel (vampiroxx5)</a>'
+              value: '<a target="_blank" href="mailto:i@pavliko.ru">i@pavliko.ru</a>'
+            telegram:
+              title: 'Telegram:'
+              value: '<a target="_blank" href="http://telegram.me/pavliko">@pavliko</a>'
             phone:
               title: 'Телефон:'
             about_self: 'О себе'
@@ -66,7 +66,7 @@
             social_accounts:
               title: 'Социальные аккаунты:'
             footer:
-              blog: '<a href="http://blog.pavliko.ru" target="_blank">Блог</a>'
+              pavliko: '<a href="http://pavliko.ru">pavliko.ru</a>'
             self_projects: 'Личные проекты:'
         t: (path) ->
           try
@@ -99,15 +99,13 @@
           %dd= t('email.value')
       %li
         %dl
-          %dt= t('skype.title')
-          %dd= t('skype.value')
+          %dt= t('telegram.title')
+          %dd= t('telegram.value')
       %li.last-in-section
         %dl
           %dt= t('phone.title')
           %dd
             %a{href: "tel:+79627050961"} +7 962 7050961
-            \/
-            %a{href: "tel:+66872704529"} +66 87 2704529
       %li.heading
         %h2= t('about_self')
       %li
@@ -124,6 +122,7 @@
           %dd
             %a{href: 'http://aviastation.ru', target: :_blank} aviastation.ru
             %a{href: 'http://redirectme.ru', target: :_blank} redirectme.ru
+            %a{href: 'http://designnovgorod.ru', target: :_blank} designnovgorod.ru
       %li.last-in-section
         %dl
           %dt= t('social_accounts.title')
@@ -135,7 +134,7 @@
             %a{href: 'http://instagram.com/pavlik0', target: :_blank} instagram
             %a{href: 'http://foursquare.com/pavliko_o', target: :_blank} swarm
       %li.footer
-        = t('footer.blog')
+        = t('footer.pavliko')
     :coffee
       site = document.getElementById('site')
       site.className = site.className + ' ' + window.locale

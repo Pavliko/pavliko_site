@@ -22,11 +22,11 @@
               },
               email: {
                 title: 'Email:',
-                value: '<a href="mailto:i@pavliko.com">i@pavliko.com</a>'
+                value: '<a target="_blank" href="mailto:i@pavliko.com">i@pavliko.com</a>'
               },
-              skype: {
-                title: 'Skype:',
-                value: '<a href="skype:vampiroxx5?call">Gorlov Pavel (vampiroxx5)</a>'
+              telegram: {
+                title: 'Telegram:',
+                value: '<a target="_blank" href="http://telegram.me/pavliko">@pavliko</a>'
               },
               phone: {
                 title: 'Phone:'
@@ -36,7 +36,7 @@
                 title: 'Education:',
                 value: 'Master, technical'
               },
-              self_projects: {
+              projects: {
                 title: 'Projects:'
               },
               work: {
@@ -47,7 +47,7 @@
                 title: 'Social accounts:'
               },
               footer: {
-                blog: '<a href="http://blog.pavliko.com">Blog</a>'
+                pavliko: '<a href="http://pavliko.com">pavliko.com</a>'
               }
             },
             ru: {
@@ -60,11 +60,11 @@
               },
               email: {
                 title: 'Почта:',
-                value: '<a href="mailto:i@pavliko.ru">i@pavliko.ru</a>'
+                value: '<a target="_blank" href="mailto:i@pavliko.ru">i@pavliko.ru</a>'
               },
-              skype: {
-                title: 'Skype:',
-                value: '<a href="skype:vampiroxx5?call">Gorlov Pavel (vampiroxx5)</a>'
+              telegram: {
+                title: 'Telegram:',
+                value: '<a target="_blank" href="http://telegram.me/pavliko">@pavliko</a>'
               },
               phone: {
                 title: 'Телефон:'
@@ -85,16 +85,16 @@
                 title: 'Социальные аккаунты:'
               },
               footer: {
-                blog: '<a href="http://blog.pavliko.ru" target="_blank">Блог</a>'
+                pavliko: '<a href="http://pavliko.ru">pavliko.ru</a>'
               },
               self_projects: 'Личные проекты:'
             }
           },
           t: function(path) {
-            var result;
+            var error, result;
             try {
               result = eval('I18n.translations.' + window.locale + '.' + path);
-            } catch (_error) {
+            } catch (error) {
       
             }
             return result || path;
@@ -137,8 +137,8 @@
       </li>
       <li>
         <dl>
-          <dt><script>document.write(window.I18n.t('skype.title'));</script></dt>
-          <dd><script>document.write(window.I18n.t('skype.value'));</script></dd>
+          <dt><script>document.write(window.I18n.t('telegram.title'));</script></dt>
+          <dd><script>document.write(window.I18n.t('telegram.value'));</script></dd>
         </dl>
       </li>
       <li class='last-in-section'>
@@ -146,8 +146,6 @@
           <dt><script>document.write(window.I18n.t('phone.title'));</script></dt>
           <dd>
             <a href='tel:+79627050961'>+7 962 7050961</a>
-            /
-            <a href='tel:+66872704529'>+66 87 2704529</a>
           </dd>
         </dl>
       </li>
@@ -172,6 +170,7 @@
           <dd>
             <a href='http://aviastation.ru' target='_blank'>aviastation.ru</a>
             <a href='http://redirectme.ru' target='_blank'>redirectme.ru</a>
+            <a href='http://designnovgorod.ru' target='_blank'>designnovgorod.ru</a>
           </dd>
         </dl>
       </li>
@@ -189,7 +188,7 @@
         </dl>
       </li>
       <li class='footer'>
-        <script>document.write(window.I18n.t('footer.blog'));</script>
+        <script>document.write(window.I18n.t('footer.pavliko'));</script>
       </li>
     </ol>
     <script>
